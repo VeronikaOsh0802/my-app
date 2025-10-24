@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import todoReducer from "./feature/todoList";
 import { loadFromLocalStorage, saveToLocalStorage } from "./helpers/storage";
-
+const preloadedState = loadFromLocalStorage();
 export const store = configureStore({
   reducer: {
-    todoList: todoReducer, // Assuming `todoReducer` is your actual reducer function
+    todoList: todoReducer,
   },
-  preloadedState: loadFromLocalStorage(),
+
+  preloadedState: preloadedState
+    ? { todoList: preloadedState.todoList }
+    : undefined,
 });
 
 store.subscribe(() => saveToLocalStorage(store.getState()));

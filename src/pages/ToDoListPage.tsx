@@ -20,7 +20,6 @@ const createNewToDo = (text:string) => {
   const deleteToDo = (toDoItem: ToDo) => {
         dispatch(deleteAction(toDoItem))
   }
-
   return (
   <>
 

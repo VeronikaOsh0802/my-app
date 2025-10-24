@@ -5,12 +5,12 @@ import classes from './ListItem.module.scss'
 export const ListItem = ({todo}: {todo:ToDo}) => {
   return (
 
-<Link 
+<a
     className={`${classes.link} ${todo.isDone ? classes.done : classes.notDone}`} 
     target="_blank"
     rel="noreferrer"
-    to={`/list/${todo.id}`}
-    >{todo.text}</Link>
+    href={`/list/${todo.id}`}
+    >{todo.text}</a>
 
   )
 }
